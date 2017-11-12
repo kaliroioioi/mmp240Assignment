@@ -1,0 +1,282 @@
+@supports (grid-area: auto){
+  
+  .content{
+    max-width: 1125px;
+    padding-top: 10px;
+    margin: auto;    
+  }
+    
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+      "sidebar main"
+      "footer main";
+  }
+  
+  .sidebar{
+    /*grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "logo"
+      "nav"
+      "footer";*/
+    padding: 10px;
+  }
+  
+  .main{
+    /*grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    grid-template-areas:
+      "heroimgage";*/
+    padding: 10px;
+}
+  
+  .heroimage{
+    /*grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "intro";*/
+    padding: 10px;
+    max-height: 550px;
+  }
+    
+/*about.html specific*/
+  .maincontent{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "intro";
+    padding: 10px;
+    max-height: 550px;
+  }
+
+/*gallery.html specific*/
+  .gcontent table{
+    padding: 3px;
+    margin: auto;
+  }
+    
+  .intro{
+    height: auto;
+    width: 700px;
+    position: relative;
+    bottom: 120px;
+    left: 16px;
+  }
+  
+  .dintro{
+    height: auto;
+    width: 600px;
+    position: relative;
+    bottom: 170px;
+    left: 75px;
+  }
+    
+/* about.html specific*/
+  .infobar{
+    height: auto;
+    width: 350px;
+    position: relative;
+    bottom: 100px;
+    left: 16px;
+  }
+  
+  .sidebar{ grid-area: sidebar; }
+  
+  .main{ grid-area: main; }
+  
+  .intro { grid-area: intro; }
+
+  .footer { grid-area: footer; }
+
+  .thumb { grid-area: thumb; }
+  
+}
+
+body{
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.sidebar{
+   background-color: rgba(0,127,255,.1);
+}
+
+.footer {
+  background-color: rgba(0,127,255,.1);
+  font-style: italic;
+  text-align: center;
+}
+
+.main{
+  background-color: rgba(251,249,194,.3);
+}
+
+.intro, .infobar /*about.html specific*/, .dintro /*directions.html specific*/{
+  background-color: rgba(0,127,255,.3);
+}
+
+h3{
+    color: #FFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+p.info{
+    color: #FFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.nav {
+    max-width: 150px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Transition code from nav.css */
+a {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+a, p{
+  color: #000;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+a{
+  text-decoration: none;
+  font-size: 32px;
+}
+
+li a:hover{
+  text-decoration: none;
+  color: rgb(251,249,194);
+  font-size: 32px;
+}
+
+nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li{
+  padding-top: 20px;
+  padding-bottom: 20px;  
+}
+
+/*about.html specific*/
+.aboutus{
+    height: auto;
+    width: 300px;
+    position: relative;
+    bottom: 665px;
+    left: 390px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.aboutus p{
+    text-align: justify;
+}
+
+.aboutus ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+  font-size: 9px;
+}
+
+.aboutus li{
+ padding-bottom: 2px;
+ padding-left: 8px;
+ padding-right: 8px;
+}
+
+.zoomin li:hover {
+ font-size: 12px;
+ color: rgb(255,0,0);
+}
+
+/* gallery.html specific */
+.thumb{
+ max-width: 170px;
+ max-height: 170px;
+ overflow: hidden;
+ padding: 5px;
+ margin: auto;
+}
+
+th:hover{
+ background-color: rgba(0,127,255,0.2);
+}
+
+/* popup in gallery.html specific 
+   edited from "https://codepen.io/imprakash/pen/GgNMXO"
+   revisit this code to fully understand it...
+   how to center image? (tried everything i know so far)
+*/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 127, 255, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 10px auto;
+  padding: 5px;
+  background: #fff;
+  border-radius: 5px;
+  width: 55%;
+  position: relative;
+  transition: all 3s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: rgb(255, 0, 0);
+}
+
+.popup h3{
+  color: #333;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: auto;
+  }
+}
